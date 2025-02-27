@@ -1,54 +1,3 @@
-// export const questions = [
-//   {
-//     "id": 1,
-//     "text": "Bạn thích giao tiếp xã hội hơn là ở một mình?",
-//     "dimension": "Mind",
-//     "effect": "E"
-//   },
-//   {
-//     "id": 2,
-//     "text": "Bạn thường dựa vào trực giác hơn là thông tin thực tế?",
-//     "dimension": "Energy",
-//     "effect": "N"
-//   },
-//   {
-//     "id": 3,
-//     "text": "Bạn ra quyết định dựa trên logic hơn là cảm xúc?",
-//     "dimension": "Nature",
-//     "effect": "T"
-//   },
-//   {
-//     "id": 4,
-//     "text": "Bạn thích lập kế hoạch trước hơn là hành động ngẫu nhiên?",
-//     "dimension": "Tactics",
-//     "effect": "J"
-//   },
-//   {
-//     "id": 5,
-//     "text": "Bạn cảm thấy kiệt sức sau một khoảng thời gian dài giao tiếp với nhiều người?",
-//     "dimension": "Mind",
-//     "effect": "I"
-//   },
-//   {
-//     "id": 6,
-//     "text": "Bạn tin rằng mọi thứ nên dựa trên thực tế hơn là giả thuyết?",
-//     "dimension": "Energy",
-//     "effect": "S"
-//   },
-//   {
-//     "id": 7,
-//     "text": "Bạn coi trọng sự hài hòa và quan hệ con người hơn là sự chính xác?",
-//     "dimension": "Nature",
-//     "effect": "F"
-//   },
-//   {
-//     "id": 8,
-//     "text": "Bạn cảm thấy thoải mái hơn khi linh hoạt thay vì theo kế hoạch?",
-//     "dimension": "Tactics",
-//     "effect": "P"
-//   }
-// ];
-
 export const questions = [
   { id: 1, text: "Bạn thường xuyên kết bạn mới.", dimension: "IE", effect: "E" },
   { id: 2, text: "Những ý tưởng phức tạp và mới lạ sẽ khiến bạn bị kích thích hơn những ý tưởng đơn giản và rõ ràng.", dimension: "SN", effect: "N" },
@@ -59,5 +8,55 @@ export const questions = [
   { id: 7, text: "Bạn sắp xếp thứ tự ưu tiên và lên kế hoạch cho các nhiệm vụ một cách hiệu quả, thường hoàn thành tốt chúng trước thời hạn.", dimension: "JP", effect: "J" },
   { id: 8, text: "Với bạn, câu chuyện và cảm xúc của mọi người có ý nghĩa hơn so với các con số hoặc dữ liệu.", dimension: "TF", effect: "F" },
   { id: 9, text: "Bạn thích dùng các công cụ quản lý hỗ trợ như thời gian biểu hoặc danh sách.", dimension: "JP", effect: "J" },
-  { id: 10, text: "Ngay cả những lỗi nhỏ nhất cũng có thể khiến bạn nghi ngờ về toàn bộ năng lực và kiến thức của mình.", dimension: "TF", effect: "F" }
+  { id: 10, text: "Ngay cả những lỗi nhỏ nhất cũng có thể khiến bạn nghi ngờ về toàn bộ năng lực và kiến thức của mình.", dimension: "TF", effect: "F" },
+  { id: 11, text: "Bạn cảm thấy khá thoải mái khi tiến tới và bắt chuyện với một ai đó mà bạn cho là thú vị.", dimension: "IE", effect: "E" },
+  { id: 12, text: "Bạn không quá hứng thú bàn luận về những cách lý giải một tác phẩm có tính sáng tạo.", dimension: "SN", effect: "S" },
+  { id: 13, text: "Khi xác định hướng hành động, bạn ưu tiên sự thật hơn cảm xúc của mọi người.", dimension: "TF", effect: "T" },
+  { id: 14, text: "Bạn thường để một ngày trôi qua mà không có bất kỳ lịch trình hay kế hoạch nào.", dimension: "JP", effect: "P" },
+  { id: 15, text: "Bạn hiếm khi lo lắng về việc bạn có tạo được ấn tượng tốt với những người bạn gặp hay không.", dimension: "TF", effect: "T" },
+  { id: 16, text: "Bạn thích tham gia vào các hoạt động theo nhóm.", dimension: "IE", effect: "E" },
+  { id: 17, text: "Bạn thích thử nghiệm những cách tiếp cận mới và chưa qua thử nghiệm.", dimension: "SN", effect: "N" },
+  { id: 18, text: "Bạn ưu tiên ứng biến hơn là hoàn toàn thành thật.", dimension: "TF", effect: "F" },
+  { id: 19, text: "Bạn tích cực tìm kiếm những trải nghiệm và lĩnh vực kiến thức mới để khám phá.", dimension: "SN", effect: "N" },
+  { id: 20, text: "Bạn có xu hướng lo lắng rằng mọi thứ sẽ trở nên tồi tệ hơn.", dimension: "TF", effect: "F" },
+  { id: 21, text: "Bạn thích những sở thích hoặc hoạt động riêng lẻ hơn là hoạt động nhóm.", dimension: "IE", effect: "I" },
+  { id: 22, text: "Bạn hoàn toàn không thể kiếm sống bằng nghề viết truyện hư cấu.", dimension: "SN", effect: "S" },
+  { id: 23, text: "Bạn thiên về tính hiệu quả trong các quyết định, ngay cả khi điều đó có nghĩa là bỏ qua một số khía cạnh cảm xúc.", dimension: "TF", effect: "T" },
+  { id: 24, text: "Bạn muốn hoàn thành các công việc cần xử lý trước khi cho phép bản thân được nghỉ ngơi.", dimension: "JP", effect: "J" },
+  { id: 25, text: "Khi bất đồng quan điểm, bạn ưu tiên việc chứng minh quan điểm của mình hơn là quan tâm đến cảm xúc của người khác.", dimension: "TF", effect: "T" },
+  { id: 26, text: "Tại các buổi tụ họp xã giao, bạn thường đợi người khác giới thiệu bản thân trước.", dimension: "IE", effect: "I" },
+  { id: 27, text: "Tâm trạng của bạn có thể thay đổi một cách nhanh chóng.", dimension: "TF", effect: "F" },
+  { id: 28, text: "Bạn không dễ bị lung lay bởi những tranh cãi mang tính cảm xúc.", dimension: "TF", effect: "T" },
+  { id: 29, text: "Bạn thường dồn công việc để đến phút cuối mới làm.", dimension: "JP", effect: "P" },
+  { id: 30, text: "Bạn thích tranh luận về những tình huống khó xử về mặt đạo đức.", dimension: "SN", effect: "N" },
+  { id: 31, text: "Bạn thường thích ở cạnh người khác hơn là ở một mình.", dimension: "IE", effect: "E" },
+  { id: 32, text: "Bạn thường thấy nhàm chán hoặc mất hứng thú khi cuộc thảo luận bắt đầu có tính thuyết giáo.", dimension: "SN", effect: "N" },
+  { id: 33, text: "Khi sự thật và cảm xúc xung đột với nhau, bạn thường muốn làm theo lời mách bảo của trái tim.", dimension: "TF", effect: "F" },
+  { id: 34, text: "Bạn gặp khó khăn trong việc hoàn thành công việc đúng hạn.", dimension: "JP", effect: "P" },
+  { id: 35, text: "Bạn cảm thấy khó duy trì lịch làm việc hoặc học tập nhất quán.", dimension: "JP", effect: "P" },
+  { id: 36, text: "Bạn hiếm khi nào nghĩ lại về những quyết định mà bạn đã lựa chọn.", dimension: "TF", effect: "T" },
+  { id: 37, text: "Bạn bè của bạn sẽ mô tả bạn là người sôi nổi và hướng ngoại.", dimension: "IE", effect: "E" },
+  { id: 38, text: "Bạn bị thu hút bởi nhiều hình thức thể hiện sự sáng tạo khác nhau, chẳng hạn như viết lách.", dimension: "SN", effect: "N" },
+  { id: 39, text: "Bạn thường lựa chọn dựa trên sự thật khách quan hơn là ấn tượng về mặt cảm xúc.", dimension: "TF", effect: "T" },
+  { id: 40, text: "Bạn muốn mỗi ngày đều có một danh sách việc cần làm.", dimension: "JP", effect: "J" },
+  { id: 41, text: "Bạn hiếm khi cảm thấy bất an.", dimension: "TF", effect: "T" },
+  { id: 42, text: "Bạn tự tin là mọi thứ rồi sẽ đâu vào đấy.", dimension: "JP", effect: "P" },
+  { id: 43, text: "Bạn thường tránh việc gọi/nhận các cuộc gọi.", dimension: "IE", effect: "I" },
+  { id: 44, text: "Bạn thích khám phá những ý tưởng và quan điểm khác biệt.", dimension: "SN", effect: "N" },
+  { id: 45, text: "Bạn có thể dễ dàng kết nối với những người vừa gặp.", dimension: "IE", effect: "E" },
+  { id: 46, text: "Nếu các kế hoạch của bạn bị gián đoạn, thì ưu tiên hàng đầu của bạn chính là quay lại hoàn thành công việc dang dở đó càng sớm càng tốt.", dimension: "JP", effect: "J" },
+  { id: 47, text: "Bạn vẫn day dứt về những lỗi lầm mà bạn mắc phải đã từ rất lâu rồi.", dimension: "TF", effect: "F" },
+  { id: 48, text: "Bạn không quá hứng thú trong việc thảo luận về các ý tưởng như thế giới sẽ ra sao trong tương lai.", dimension: "SN", effect: "S" },
+  { id: 49, text: "Cảm xúc của bạn kiểm soát bạn nhiều hơn là bạn kiểm soát chúng.", dimension: "TF", effect: "F" },
+  { id: 50, text: "Khi đưa ra quyết định, bạn tập trung nhiều vào cảm giác của những người bị ảnh hưởng hơn là sự hợp lý hay tính hiệu quả của quyết định đó.", dimension: "TF", effect: "F" },
+  { id: 51, text: "Phong cách làm việc của cá nhân bạn giống với năng lượng tùy hứng hơn là nỗ lực bền bỉ và có tổ chức.", dimension: "JP", effect: "P" },
+  { id: 52, text: "Khi được một ai đó đánh giá cao, bạn thường tự hỏi bao lâu nữa thì họ sẽ cảm thấy thất vọng về mình.", dimension: "TF", effect: "F" },
+  { id: 53, text: "Bạn thích những công việc đòi hỏi bạn phải thường xuyên làm việc một mình.", dimension: "IE", effect: "I" },
+  { id: 54, text: "Bạn tin rằng việc nghiền ngẫm các câu hỏi triết học trừu tượng chỉ lãng phí thời gian.", dimension: "SN", effect: "S" },
+  { id: 55, text: "Bạn bị thu hút bởi những nơi có không khí nhộn nhịp, tấp nập hơn là những nơi yên ắng, kín đáo.", dimension: "IE", effect: "E" },
+  { id: 56, text: "Nếu bạn cảm thấy một quyết định là đúng đắn, bạn thường hành động theo đó mà không cần thêm bằng chứng.", dimension: "SN", effect: "N" },
+  { id: 57, text: "Bạn thường dễ cảm thấy bị quá tải.", dimension: "TF", effect: "F" },
+  { id: 58, text: "Bạn thường hoàn thành mọi thứ theo hướng dẫn và không bỏ qua bất kỳ bước nào.", dimension: "SN", effect: "S" },
+  { id: 59, text: "Bạn thích những công việc đòi hỏi bạn phải đưa ra những giải pháp sáng tạo hơn là thực hiện theo những bước cụ thể.", dimension: "SN", effect: "N" },
+  { id: 60, text: "Bạn thường sẽ sẽ thiên về trực giác cảm xúc hơn là lý luận logic khi đưa ra lựa chọn.", dimension: "TF", effect: "F" }
 ];
