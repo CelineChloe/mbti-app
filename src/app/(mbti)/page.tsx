@@ -3,6 +3,7 @@
 import { useState } from "react";
 import CollectAnswers from "./collect-answers";
 import { questions } from "../questions-mbti";
+import { Button } from "@/src/components/ui/button";
 
 const MBTIPage = () => {
   const [answers, setAnswers] = useState<{ [key: number]: number }>({});
@@ -31,13 +32,21 @@ const MBTIPage = () => {
   };
 
   return (
-    <div>
-      <h1>MBTI Test</h1>
-      {questions.map((q) => (
-        <CollectAnswers key={q.id} question={q} onAnswer={handleAnswer} />
-      ))}
-      <button onClick={calculateResult}>Submit</button>
-      {result && <h2>Your MBTI Type: {result}</h2>}
+    <div className="">
+      <div className="flex justify-center mb-6">
+        <h1 className="text-2xl font-semibold">MBTI Test</h1>
+      </div>
+      <div className="flex flex-col gap-y-10">
+        <div className="flex gap-10 flex-col">
+          {questions.map((q) => (
+            <CollectAnswers key={q.id} question={q} onAnswer={handleAnswer} />
+          ))}
+        </div>
+        <div className="mb-10">
+          <Button onClick={calculateResult}>Submit</Button>
+          {result && <h2>Your MBTI Type: {result}</h2>}
+        </div>
+      </div>
     </div>
   );
 };
