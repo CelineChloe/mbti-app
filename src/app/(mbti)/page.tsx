@@ -4,6 +4,7 @@ import { useState } from "react";
 import CollectAnswers from "./collect-answers";
 import { questions } from "../questions-mbti";
 import { Button } from "@/src/components/ui/button";
+import { ArrowRight } from "lucide-react";
 
 const MBTIPage = () => {
   const [answers, setAnswers] = useState<{ [key: number]: number }>({});
@@ -32,18 +33,26 @@ const MBTIPage = () => {
   };
 
   return (
-    <div className="">
-      <div className="flex justify-center mb-6">
-        <h1 className="text-2xl font-semibold">MBTI Test</h1>
+    <div className="text-gray-800 font-medium">
+      <div className="flex justify-center mb-16">
+        <h1 className="text-4xl font-semibold text-neutral-600">Bài kiểm tra tính cách MBTI miễn phí</h1>
       </div>
       <div className="flex flex-col gap-y-10">
         <div className="flex gap-10 flex-col">
-          {questions.map((q) => (
-            <CollectAnswers key={q.id} question={q} onAnswer={handleAnswer} />
+          {questions.map((question, index) => (
+            <div key={question.id}>
+              <div className="pb-10">
+                <CollectAnswers question={question} onAnswer={handleAnswer} />
+              </div>
+              {index < questions.length - 1 && <hr />}
+            </div>
           ))}
         </div>
         <div className="mb-10">
-          <Button onClick={calculateResult}>Submit</Button>
+          <Button onClick={calculateResult} className="flex gap-1 text-lg">
+            <span>Tiếp theo</span>
+            <ArrowRight className="w-6 h-w-6 ml-2" size={20} />
+          </Button>
           {result && <h2>Your MBTI Type: {result}</h2>}
         </div>
       </div>

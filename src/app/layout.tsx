@@ -27,8 +27,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="flex justify-center h-screen w-full">
-          {children}
+        <div className="flex justify-center w-full">
+          <div className="py-7 w-2/3 h-screen font-sans text-lg">
+            {children}
+          </div>
         </div>
       </body>
     </html>
