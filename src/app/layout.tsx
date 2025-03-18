@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import { MBTIProvider } from "@/src/lib/store";
+import { MBTIProvider } from "@/lib/store";
 
-const geistSans = Geist({
+const interFont = Inter({
   variable: "--font-geist-sans",
-  subsets: ["latin"],
+  subsets: ["latin", "vietnamese"],
 });
 
-const geistMono = Geist_Mono({
+const jetbrainsMono = JetBrains_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="vi">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${interFont.variable} ${jetbrainsMono.variable} antialiased`}
       >
         <div className="flex justify-center w-full">
           <div className="py-7 w-[90%] md:w-2/3 h-screen font-sans text-lg">

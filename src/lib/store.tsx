@@ -1,7 +1,7 @@
 'use client';
 
 import React, { createContext, useContext, useState, ReactNode } from 'react';
-import { questions } from '@/src/app/questions-mbti';
+import { questions } from '@/app/questions-mbti';
 
 // Định nghĩa kiểu dữ liệu cho context
 type MBTIContextType = {
@@ -47,7 +47,7 @@ export const MBTIProvider = ({ children }: { children: ReactNode }) => {
   const calculateResult = () => {
     const scores: { [key: string]: number } = { I: 0, E: 0, S: 0, N: 0, T: 0, F: 0, J: 0, P: 0 };
 
-    questions.forEach(({ id, effect }) => {
+    questions.forEach(({ id, effect }: { id: number; effect: string }) => {
       if (answers[id] !== undefined) {
         // Cộng điểm vào đúng loại tính cách dựa trên "effect"
         scores[effect] += answers[id];

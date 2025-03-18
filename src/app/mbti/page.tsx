@@ -3,13 +3,13 @@
 import { useState, useEffect } from "react";
 import CollectAnswers from "./collect-answers";
 import { questions } from "../questions-mbti";
-import { Button } from "@/src/components/ui/button";
+import { Button } from "@/components/ui/button";
 import { ArrowRight, RotateCcw } from "lucide-react";
-import { useMBTI } from "@/src/lib/store";
-import { Progress } from "@/src/components/ui/progress";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/src/components/ui/tabs";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/src/components/ui/card";
-import { Alert, AlertDescription, AlertTitle } from "@/src/components/ui/alert";
+import { useMBTI } from "@/lib/store";
+import { Progress } from "@/components/ui/progress";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 const MBTIPage = () => {
   const { calculateResult, result, resetTest, getAnswerCount, answers } = useMBTI();
