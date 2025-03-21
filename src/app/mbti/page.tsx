@@ -16,6 +16,7 @@ const MBTIPage = () => {
   const [activeTab, setActiveTab] = useState("test");
   const [isScrolled, setIsScrolled] = useState(false);
   const [currentQuestionId, setCurrentQuestionId] = useState<number | null>(null);
+  const [percentages, setPercentages] = useState<{ [key: string]: { value: number; dominant: string } } | null>(null);
   
   // Tính phần trăm hoàn thành
   const completionPercentage = Math.round((getAnswerCount() / questions.length) * 100);
@@ -130,7 +131,8 @@ const MBTIPage = () => {
       alert(`Bạn mới trả lời ${getAnswerCount()}/${questions.length} câu hỏi. Vui lòng trả lời tất cả các câu hỏi.`);
       return;
     }
-    calculateResult();
+    const { percentages } = calculateResult();
+    setPercentages(percentages);
     setActiveTab("result");
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -326,22 +328,155 @@ const MBTIPage = () => {
                       <p className="text-lg text-center">{mbtiDescriptions[result]?.description || "Đang cập nhật thông tin về loại tính cách này"}</p>
                     </div>
                   </CardContent>
-                  <CardFooter className="flex justify-center">
-                    <Button onClick={handleReset} variant="outline" className="flex gap-2 hover:bg-gray-100 transition-colors duration-300">
-                      <RotateCcw size={18} />
-                      <span>Làm lại bài kiểm tra</span>
-                    </Button>
-                  </CardFooter>
                 </Card>
-                
-                <Alert className="bg-blue-50 border-blue-200">
-                  <AlertTitle>Lưu ý:</AlertTitle>
-                  <AlertDescription>
-                    Kết quả này chỉ mang tính chất tham khảo. MBTI là một công cụ để giúp bạn hiểu rõ hơn về bản thân, không phải là một công cụ đánh giá tâm lý chuyên nghiệp.
-                  </AlertDescription>
-                </Alert>
+
+                {percentages && (
+                  <Card className="bg-white border-2 shadow-lg">
+                    <CardHeader>
+                      <CardTitle className="text-2xl font-bold text-center text-blue-800">Chi tiết kết quả</CardTitle>
+                      <CardDescription className="text-center">Tỷ lệ phần trăm cho từng cặp tính cách của bạn</CardDescription>
+                    </CardHeader>
+                    <CardContent className="space-y-6">
+                      <div className="space-y-4">
+                        <div>
+                          <div className="flex justify-between mb-2">
+                            <span className="font-medium">Hướng nội (I)</span>
+                            <span className="font-medium">Hướng ngoại (E)</span>
+                          </div>
+                          <div className="relative h-4 bg-gray-200 rounded-full overflow-hidden">
+                            <div
+                              className={`absolute h-full rounded-full transition-all duration-500 ${
+                                percentages.IE.dominant === "E" 
+                                  ? percentages.IE.value >= 80 
+                                    ? "bg-blue-700" 
+                                    : percentages.IE.value >= 60 
+                                      ? "bg-blue-600" 
+                                      : "bg-blue-500"
+                                  : percentages.IE.value >= 80 
+                                    ? "bg-purple-700" 
+                                    : percentages.IE.value >= 60 
+                                      ? "bg-purple-600" 
+                                      : "bg-purple-500"
+                              }`}
+                              style={{ width: `${percentages.IE.value}%` }}
+                            />
+                          </div>
+                          <div className="text-sm text-gray-600 mt-1 text-center">
+                            {percentages.IE.dominant === "I" 
+                              ? `Hướng nội ${percentages.IE.value}%` 
+                              : `Hướng ngoại ${percentages.IE.value}%`}
+                          </div>
+                        </div>
+
+                        <div>
+                          <div className="flex justify-between mb-2">
+                            <span className="font-medium">Cảm nhận (S)</span>
+                            <span className="font-medium">Trực giác (N)</span>
+                          </div>
+                          <div className="relative h-4 bg-gray-200 rounded-full overflow-hidden">
+                            <div
+                              className={`absolute h-full rounded-full transition-all duration-500 ${
+                                percentages.SN.dominant === "N" 
+                                  ? percentages.SN.value >= 80 
+                                    ? "bg-blue-700" 
+                                    : percentages.SN.value >= 60 
+                                      ? "bg-blue-600" 
+                                      : "bg-blue-500"
+                                  : percentages.SN.value >= 80 
+                                    ? "bg-purple-700" 
+                                    : percentages.SN.value >= 60 
+                                      ? "bg-purple-600" 
+                                      : "bg-purple-500"
+                              }`}
+                              style={{ width: `${percentages.SN.value}%` }}
+                            />
+                          </div>
+                          <div className="text-sm text-gray-600 mt-1 text-center">
+                            {percentages.SN.dominant === "S" 
+                              ? `Cảm nhận ${percentages.SN.value}%` 
+                              : `Trực giác ${percentages.SN.value}%`}
+                          </div>
+                        </div>
+
+                        <div>
+                          <div className="flex justify-between mb-2">
+                            <span className="font-medium">Lý trí (T)</span>
+                            <span className="font-medium">Cảm xúc (F)</span>
+                          </div>
+                          <div className="relative h-4 bg-gray-200 rounded-full overflow-hidden">
+                            <div
+                              className={`absolute h-full rounded-full transition-all duration-500 ${
+                                percentages.TF.dominant === "F" 
+                                  ? percentages.TF.value >= 80 
+                                    ? "bg-blue-700" 
+                                    : percentages.TF.value >= 60 
+                                      ? "bg-blue-600" 
+                                      : "bg-blue-500"
+                                  : percentages.TF.value >= 80 
+                                    ? "bg-purple-700" 
+                                    : percentages.TF.value >= 60 
+                                      ? "bg-purple-600" 
+                                      : "bg-purple-500"
+                              }`}
+                              style={{ width: `${percentages.TF.value}%` }}
+                            />
+                          </div>
+                          <div className="text-sm text-gray-600 mt-1 text-center">
+                            {percentages.TF.dominant === "T" 
+                              ? `Lý trí ${percentages.TF.value}%` 
+                              : `Cảm xúc ${percentages.TF.value}%`}
+                          </div>
+                        </div>
+
+                        <div>
+                          <div className="flex justify-between mb-2">
+                            <span className="font-medium">Nguyên tắc (J)</span>
+                            <span className="font-medium">Linh hoạt (P)</span>
+                          </div>
+                          <div className="relative h-4 bg-gray-200 rounded-full overflow-hidden">
+                            <div
+                              className={`absolute h-full rounded-full transition-all duration-500 ${
+                                percentages.JP.dominant === "P" 
+                                  ? percentages.JP.value >= 80 
+                                    ? "bg-blue-700" 
+                                    : percentages.JP.value >= 60 
+                                      ? "bg-blue-600" 
+                                      : "bg-blue-500"
+                                  : percentages.JP.value >= 80 
+                                    ? "bg-purple-700" 
+                                    : percentages.JP.value >= 60 
+                                      ? "bg-purple-600" 
+                                      : "bg-purple-500"
+                              }`}
+                              style={{ width: `${percentages.JP.value}%` }}
+                            />
+                          </div>
+                          <div className="text-sm text-gray-600 mt-1 text-center">
+                            {percentages.JP.dominant === "J" 
+                              ? `Nguyên tắc ${percentages.JP.value}%` 
+                              : `Linh hoạt ${percentages.JP.value}%`}
+                          </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                )}
+
+                <CardFooter className="flex justify-center">
+                  <Button onClick={handleReset} variant="outline" className="flex gap-2 hover:bg-gray-100 transition-colors duration-300">
+                    <RotateCcw size={18} />
+                    <span>Làm lại bài kiểm tra</span>
+                  </Button>
+                </CardFooter>
               </div>
             )}
+
+            <Alert className="bg-blue-50 border-blue-200">
+              <AlertTitle>Lưu ý:</AlertTitle>
+              <AlertDescription>
+                Kết quả này chỉ mang tính chất tham khảo. MBTI là một công cụ để giúp bạn hiểu rõ hơn về bản thân, không phải là một công cụ đánh giá tâm lý chuyên nghiệp.
+              </AlertDescription>
+            </Alert>
           </TabsContent>
         </Tabs>
       </div>
